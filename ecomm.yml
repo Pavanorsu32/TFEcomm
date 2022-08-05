@@ -1,0 +1,33 @@
+---
+- name: Deploy Ecomm app
+  hosts: group1
+  become: yes
+
+  tasks:
+  - name: Install Git
+    yum:
+      name: git
+      state: present
+
+  - name: Install httpd
+    yum:
+      name: httpd
+      state: present
+
+  - name: Start httpd
+    service:
+      name: httpd
+      state: started
+            
+  - name: Enable httpd
+    service:
+      name: httpd
+      enabled: yes
+      
+  - name: Deply App
+    git:
+      repo: https://github.com/Pavanorsu32/ecomm.git
+      dest: /var/www/html
+
+
+...
