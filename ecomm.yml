@@ -1,6 +1,6 @@
 ---
 - name: Deploy Ecomm app
-  hosts: 172.31.12.100
+  hosts: group1
   become: yes
 
   tasks:
